@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cimenaga.com/sitemap.xml
