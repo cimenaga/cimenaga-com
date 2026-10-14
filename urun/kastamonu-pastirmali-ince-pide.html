@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://cimenaga.com/assets/img/pide.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/img/icon.png?v=2">
-<link rel="stylesheet" href="/assets/style.css?v=19">
+<link rel="stylesheet" href="/assets/style.css?v=41">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -83,7 +83,15 @@
      "name": "Pastırmalı ince pide nedir?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Pastırmalı ince pide, ince açılmış hamurun üzerinde Kastamonu pastırmasıyla hazırlanan pidedir. Çimenağa bu pideyi Kastamonu'daki dükkânında odun fırınında pişirir."
+      "text": "Pastırmalı ince pide, ince açılmış hamurun üzerinde Kastamonu pastırmasıyla hazırlanan pidedir. Çimenağa pideyi Kastamonu'daki dükkânında odun fırınında pişirir."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Pastırmalı ince pide soğanlı mı gelir, az soğanlı seçeneği var mı?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Pastırmalı ince pideyi soğanlı ya da az soğanlı seçebilirsiniz. İki seçeneğin fiyatı aynıdır: adet başına 350 ₺."
      }
     },
     {
@@ -138,19 +146,24 @@
 <h1>Kastamonu Pastırmalı İnce Pide</h1>
 <p class="price-lg" data-price="pide"></p>
 <p class="unit">adet</p>
-<p>İnce açılmış hamurun üzerinde Kastamonu pastırması.</p>
-
+<p>İnce açılmış hamurun üzerine Kastamonu pastırması serilir. Pideyi Kastamonu'daki dükkânımızda odun fırınında pişiriyoruz; sipariş verdiğinizde dondurulmuş olarak size ulaştırıyoruz.</p>
+<p>Soğanlı hâliyle pastırmanın sarımsaklı, yoğun lezzetine taze soğan tatlılığı eşlik eder. Soğanın baskın gelmesini istemeyenler için az soğanlı seçeneğimiz de var.</p>
 <ul class="facts">
-<li>İnce hamurlu, Kastamonu pastırmalı pide</li><li>Teslim aldığınızda dondurucuya koyun</li>
+<li>İnce hamurlu ve Kastamonu pastırmalı pidedir</li><li>Kastamonu'da odun fırınında pişirilir</li><li>Soğanlı ve az soğanlı seçenekleri vardır</li><li>Dondurulmuş gönderilir, teslim aldığınızda dondurucuya koyun</li>
 </ul>
-<p class="note">Bu ürün dondurulmuş olarak gönderilir.</p>
+<fieldset class="opts"><legend>Soğan seçeneği</legend>
+<label><input type="radio" name="sogan" value="pide" checked> Soğanlı <small>Geleneksel tarif</small></label>
+<label><input type="radio" name="sogan" value="pide_az_sogan"> Az soğanlı <small>Soğanı hafif, pastırma önde</small></label>
+</fieldset>
+<p class="note">Pastırmalı ince pide dondurulmuş olarak gönderilir.</p>
 <button class="btn" type="button" data-add="pide">Sepete Ekle</button>
 </div>
 </div></section>
 <section class="band"><div class="wrap">
 <div class="head"><h2>Sık Sorulanlar</h2></div>
 <div class="faq">
-<details><summary>Pastırmalı ince pide nedir?</summary><p>Pastırmalı ince pide, ince açılmış hamurun üzerinde Kastamonu pastırmasıyla hazırlanan pidedir. Çimenağa bu pideyi Kastamonu'daki dükkânında odun fırınında pişirir.</p></details>
+<details><summary>Pastırmalı ince pide nedir?</summary><p>Pastırmalı ince pide, ince açılmış hamurun üzerinde Kastamonu pastırmasıyla hazırlanan pidedir. Çimenağa pideyi Kastamonu'daki dükkânında odun fırınında pişirir.</p></details>
+<details><summary>Pastırmalı ince pide soğanlı mı gelir, az soğanlı seçeneği var mı?</summary><p>Pastırmalı ince pideyi soğanlı ya da az soğanlı seçebilirsiniz. İki seçeneğin fiyatı aynıdır: adet başına 350 ₺.</p></details>
 <details><summary>Pastırmalı ince pide ne kadar?</summary><p>Çimenağa pastırmalı ince pide adet başına 350 ₺'dir.</p></details>
 <details><summary>Pastırmalı ince pide kargoyla nasıl gönderilir?</summary><p>Çimenağa pastırmalı ince pideyi dondurulmuş olarak Türkiye'nin her yerine gönderir; teslim aldığınızda dondurucuya koymanız gerekir. 5.000 ₺ ve üzeri siparişlerde kargo ücretsizdir, altındaki siparişlerde kargo ücreti 250 ₺'dir.</p></details>
 <details><summary>Çimenağa'dan pastırmalı ince pide nasıl sipariş edilir?</summary><p>Pideyi sepete ekleyip "WhatsApp'tan Siparişi İlet" butonuna basarak Çimenağa'ya sipariş verebilirsiniz. Ödeme ve teslimat bilgisi WhatsApp üzerinden teyit edilir.</p></details>
@@ -158,28 +171,34 @@
 </div></section>
 </main>
 <section id="cart" hidden>
-<details class="wrap">
-<summary>Sepetim <span>Toplam <b id="total"></b></span></summary>
+<button id="cart-bar" class="wrap" type="button" aria-haspopup="dialog"><span>Sepetim <b id="bar-count"></b></span><span class="bar-total">Toplam <b class="total"></b></span><span class="bar-go">Sepeti Gör</span></button>
+</section>
+<dialog id="cart-panel" aria-labelledby="cart-title">
+<div class="wrap">
+<div class="panel-head"><h2 id="cart-title">Sepetim</h2><button id="cart-close" type="button" aria-label="Sepeti kapat">✕</button></div>
+<a id="add-more" class="btn ghost" href="/urunlerimiz.html">+ Yeni ürün ekle</a>
 <ul id="items"></ul>
 <p id="ship"></p>
+<p class="panel-total">Toplam <b class="total"></b></p>
 <div id="order">
 <small>5.000 ₺ ve üzeri siparişlerde kargo ücretsizdir; altındaki siparişlerde kargo ücreti 250 ₺'dir. Siparişiniz WhatsApp üzerinden teyit edilir. Siparişi ileterek <a href="/mesafeli-satis-sozlesmesi.html">Mesafeli Satış Sözleşmesi</a>'ni kabul etmiş olursunuz.</small>
 <button id="send" class="btn" type="button">WhatsApp'tan Siparişi İlet</button>
 <button id="share" type="button">Sepeti paylaş</button>
 </div>
-</details>
-</section>
+</div>
+</dialog>
 <footer>
 <div class="wrap">
 <img src="/assets/img/logo.png?v=2" alt="" width="105" height="72">
 <div>
-<p><b>Çimenağa Pastırma</b></p>
+<p><b>Çimenağa Pastırma &amp; Sucuk</b></p>
+<p class="open"><b>Her gün 08:00 - 20:00 arası açığız</b></p>
 <p>Hepkebirler Mh. Omuzlu Sk. No:1, Merkez, Kastamonu</p>
 <p><a href="tel:+905416967790">+90 541 696 77 90</a> · <a href="mailto:cimenagapastirma@gmail.com">cimenagapastirma@gmail.com</a></p>
-<p class="open"><b>Her gün akşam 20:00'ye kadar açığız</b> · Hafta içi 08:00'den itibaren</p>
 </div>
 <nav>
 <a href="/kastamonu-cografi-isaretli-urunleri.html">Coğrafi İşaretli Ürünler</a>
+<a href="/kastamonuya-yolunuz-duserse.html">Kastamonu'ya Yolunuz Düşerse</a>
 <a href="/gizlilik-politikasi.html">Gizlilik Politikası</a>
 <a href="/kvkk.html">KVKK</a>
 <a href="/mesafeli-satis-sozlesmesi.html">Mesafeli Satış Sözleşmesi</a>
@@ -192,6 +211,6 @@
 <li><img alt="" width="60" height="60"><span><b></b><small></small></span><span class="sum"></span>
 <span class="q"><button type="button" data-step="-1" aria-label="Azalt">−</button><output></output><button type="button" data-step="1" aria-label="Artır">+</button></span></li>
 </template>
-<script src="/assets/app.js?v=10"></script>
+<script src="/assets/app.js?v=13"></script>
 </body>
 </html>

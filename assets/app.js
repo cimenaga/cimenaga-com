@@ -10,7 +10,8 @@ const PRODUCTS = {
   pastirma: { name: "Kastamonu Pastırması", unit: "1 kg", price: 2800, url: "/urun/kastamonu-pastirmasi.html" },
   pastirma_cemensiz: { name: "Kastamonu Pastırması (Çimensiz)", unit: "1 kg", price: 2800, url: "/urun/kastamonu-pastirmasi.html", img: "pastirma" },
   sucuk: { name: "Kastamonu Sucuğu", unit: "1 kg", price: 2000, url: "/urun/kastamonu-sucugu.html" },
-  pide: { name: "Kastamonu Pastırmalı İnce Pide", unit: "adet", price: 350, url: "/urun/kastamonu-pastirmali-ince-pide.html", note: "Dondurulmuş olarak gönderilir" },
+  pide: { name: "Kastamonu Pastırmalı İnce Pide (Soğanlı)", unit: "adet", price: 350, url: "/urun/kastamonu-pastirmali-ince-pide.html", note: "Dondurulmuş olarak gönderilir" },
+  pide_az_sogan: { name: "Kastamonu Pastırmalı İnce Pide (Az Soğanlı)", unit: "adet", price: 350, url: "/urun/kastamonu-pastirmali-ince-pide.html", img: "pide", note: "Dondurulmuş olarak gönderilir" },
 };
 
 const $ = (s) => document.querySelector(s);
@@ -63,9 +64,12 @@ function render() {
   history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
 
   const items = entries();
-  $("#count").textContent = items.reduce((s, p) => s + p.qty, 0);
+  const n = items.reduce((s, p) => s + p.qty, 0);
+  $("#count").textContent = n;
+  $("#bar-count").textContent = n;
   $("#cart").hidden = items.length === 0;
-  $("#total").textContent = fmt(total() + shipping());
+  if (!items.length && $("#cart-panel").open) $("#cart-panel").close();
+  for (const t of document.querySelectorAll(".total")) t.textContent = fmt(total() + shipping());
   const left = CONFIG.freeShippingFrom - total();
   const ship = $("#ship");
   ship.classList.toggle("free", !shipping());
@@ -114,17 +118,22 @@ document.addEventListener("click", async (e) => {
   if (e.target.closest("nav a")) $("header").classList.remove("open");
   const add = e.target.closest("[data-add]");
   if (add) {
-    const variant = add.closest("div")?.querySelector("input[name=cemen]:checked");
+    const variant = add.closest("div")?.querySelector("input[type=radio]:checked");
     change(variant ? variant.value : add.dataset.add, 1);
-    $("#cart details").open = true;
     add.dataset.label ||= add.textContent;
     add.textContent = "Sepete eklendi ✓";
     setTimeout(() => (add.textContent = add.dataset.label), 1200);
     return;
   }
-  if (e.target.closest("#open-cart")) {
+  if (e.target.closest("#open-cart") || e.target.closest("#cart-bar")) {
+    e.preventDefault();
     if (!entries().length) { location.href = "/urunlerimiz.html"; return; }
-    $("#cart details").open = true;
+    $("#cart-panel").showModal();
+    return;
+  }
+  if (e.target.closest("#cart-close")) { $("#cart-panel").close(); return; }
+  if (e.target.closest("#add-more")) {
+    if (location.pathname === "/urunlerimiz.html") { e.preventDefault(); $("#cart-panel").close(); }
     return;
   }
   const step = e.target.closest("[data-step]");

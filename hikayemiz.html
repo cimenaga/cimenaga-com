@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://cimenaga.com/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/img/icon.png?v=2">
-<link rel="stylesheet" href="/assets/style.css?v=19">
+<link rel="stylesheet" href="/assets/style.css?v=41">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -62,39 +62,45 @@
 <section><div class="wrap"><article>
 <h1>Hikâyemiz</h1>
 
-<p>Hikâyemiz, Kastamonu'nun Devrekani ilçesinde, pastırmacı olarak yola çıkan dedelerimizle başlar. Logomuzdaki 1927, bu yolculuğun başlangıcıdır.</p>
+<p>Hikâyemiz, Kastamonu'nun Devrekani ilçesinde, pastırmacı olarak yola çıkan dedelerimizle başlar. Logomuzdaki 1927, yolculuğun başlangıcıdır.</p>
 <h2>Sabrın zanaatı</h2>
-<p>Pastırma acele kaldırmayan bir iştir. Eti seçmek, tuzlamak, kurumasını beklemek, çimeni sürmek... her adımın kendi zamanı vardır. Dedelerimiz bu zamanı bilen insanlardı. Biz de onlardan öğrendiğimiz bu sabrı sofranıza taşımaya çalışıyoruz.</p>
+<p>Pastırma acele kaldırmayan bir iştir. Eti seçmek, tuzlamak, kurumasını beklemek, çimeni sürmek... her adımın kendi zamanı vardır. Dedelerimiz zamanı bilen insanlardı. Ürünlerimizin ideal olgunlaşma süresini tamamlaması için zaman tanır, lezzetini kazanmasını sabırla bekleriz. Biz de onlardan öğrendiğimiz sabrı sofranıza taşımaya çalışıyoruz.</p>
 <h2>Devrekani'den sofranıza</h2>
-<p>Bugün Çimenağa, dedelerimizin lezzetli ellerinin bize devrettiği mutfağın devamıdır. Kastamonu pastırması, Kastamonu sucuğu ve pastırmalı ince pide. Yolculuğumuz Devrekani'de başladı, Kastamonu'da sürüyor; sofranıza kadar uzanıyor.</p>
+<p>Bugün Çimenağa, dedelerimizden devraldığımız mutfağın devamıdır; Kastamonu pastırması, Kastamonu sucuğu ve pastırmalı ince pide sunuyoruz. Yolculuğumuz Devrekani'de başladı, Kastamonu'da sürüyor; sofranıza kadar uzanıyor.</p>
 <h2>Kastamonu pastırması</h2>
 <p>Kastamonu pastırması, 2021'de mahreç işareti olarak tescil edildi. Kemiksiz sırt eti kaya tuzuyla tuzlanır, ağırlık altında sıkıştırılır, güneşte kurutulur ve Taşköprü sarımsaklı çimenle kaplanır; üretim genellikle Eylül'den Nisan'a kadar sürer. <a href="/urun/kastamonu-pastirmasi.html">Pastırmamıza göz atın</a> ya da <a href="/kastamonu-cografi-isaretli-urunleri.html">coğrafi işaret tescilimiz</a> hakkında bilgi alın.</p>
 
 </article></div></section>
 </main>
 <section id="cart" hidden>
-<details class="wrap">
-<summary>Sepetim <span>Toplam <b id="total"></b></span></summary>
+<button id="cart-bar" class="wrap" type="button" aria-haspopup="dialog"><span>Sepetim <b id="bar-count"></b></span><span class="bar-total">Toplam <b class="total"></b></span><span class="bar-go">Sepeti Gör</span></button>
+</section>
+<dialog id="cart-panel" aria-labelledby="cart-title">
+<div class="wrap">
+<div class="panel-head"><h2 id="cart-title">Sepetim</h2><button id="cart-close" type="button" aria-label="Sepeti kapat">✕</button></div>
+<a id="add-more" class="btn ghost" href="/urunlerimiz.html">+ Yeni ürün ekle</a>
 <ul id="items"></ul>
 <p id="ship"></p>
+<p class="panel-total">Toplam <b class="total"></b></p>
 <div id="order">
 <small>5.000 ₺ ve üzeri siparişlerde kargo ücretsizdir; altındaki siparişlerde kargo ücreti 250 ₺'dir. Siparişiniz WhatsApp üzerinden teyit edilir. Siparişi ileterek <a href="/mesafeli-satis-sozlesmesi.html">Mesafeli Satış Sözleşmesi</a>'ni kabul etmiş olursunuz.</small>
 <button id="send" class="btn" type="button">WhatsApp'tan Siparişi İlet</button>
 <button id="share" type="button">Sepeti paylaş</button>
 </div>
-</details>
-</section>
+</div>
+</dialog>
 <footer>
 <div class="wrap">
 <img src="/assets/img/logo.png?v=2" alt="" width="105" height="72">
 <div>
-<p><b>Çimenağa Pastırma</b></p>
+<p><b>Çimenağa Pastırma &amp; Sucuk</b></p>
+<p class="open"><b>Her gün 08:00 - 20:00 arası açığız</b></p>
 <p>Hepkebirler Mh. Omuzlu Sk. No:1, Merkez, Kastamonu</p>
 <p><a href="tel:+905416967790">+90 541 696 77 90</a> · <a href="mailto:cimenagapastirma@gmail.com">cimenagapastirma@gmail.com</a></p>
-<p class="open"><b>Her gün akşam 20:00'ye kadar açığız</b> · Hafta içi 08:00'den itibaren</p>
 </div>
 <nav>
 <a href="/kastamonu-cografi-isaretli-urunleri.html">Coğrafi İşaretli Ürünler</a>
+<a href="/kastamonuya-yolunuz-duserse.html">Kastamonu'ya Yolunuz Düşerse</a>
 <a href="/gizlilik-politikasi.html">Gizlilik Politikası</a>
 <a href="/kvkk.html">KVKK</a>
 <a href="/mesafeli-satis-sozlesmesi.html">Mesafeli Satış Sözleşmesi</a>
@@ -107,6 +113,6 @@
 <li><img alt="" width="60" height="60"><span><b></b><small></small></span><span class="sum"></span>
 <span class="q"><button type="button" data-step="-1" aria-label="Azalt">−</button><output></output><button type="button" data-step="1" aria-label="Artır">+</button></span></li>
 </template>
-<script src="/assets/app.js?v=10"></script>
+<script src="/assets/app.js?v=13"></script>
 </body>
 </html>

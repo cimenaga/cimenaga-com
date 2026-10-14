@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KVKK Aydınlatma Metni | Çimenağa Pastırma</title>
-<meta name="description" content="Çimenağa Pastırma KVKK aydınlatma metni: WhatsApp üzerinden alınan kişisel verilerin işlenme amacı, aktarımı ve haklarınız.">
+<meta name="description" content="Çimenağa Pastırma KVKK aydınlatma metni. WhatsApp üzerinden alınan kişisel verilerin işlenme amacı, aktarımı ve haklarınız anlatılır.">
 <link rel="canonical" href="https://cimenaga.com/kvkk.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#14284b">
@@ -13,12 +13,12 @@
 <meta property="og:locale" content="tr_TR">
 <meta property="og:type" content="website">
 <meta property="og:title" content="KVKK Aydınlatma Metni | Çimenağa Pastırma">
-<meta property="og:description" content="Çimenağa Pastırma KVKK aydınlatma metni: WhatsApp üzerinden alınan kişisel verilerin işlenme amacı, aktarımı ve haklarınız.">
+<meta property="og:description" content="Çimenağa Pastırma KVKK aydınlatma metni. WhatsApp üzerinden alınan kişisel verilerin işlenme amacı, aktarımı ve haklarınız anlatılır.">
 <meta property="og:url" content="https://cimenaga.com/kvkk.html">
 <meta property="og:image" content="https://cimenaga.com/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/img/icon.png?v=2">
-<link rel="stylesheet" href="/assets/style.css?v=19">
+<link rel="stylesheet" href="/assets/style.css?v=41">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -72,37 +72,43 @@
 <h2>4. Toplanma Yöntemi ve Hukuki Sebep</h2>
 <p>Verileriniz, WhatsApp hattımız veya telefon yoluyla bizimle iletişime geçmeniz suretiyle otomatik olmayan yollarla elektronik ortamda toplanır. Sepetiniz yalnızca tarayıcınızda tutulur, sunucularımıza aktarılmaz. İşleme; sözleşmenin kurulması veya ifası (KVKK m.5/2-c), hukuki yükümlülüğün yerine getirilmesi (m.5/2-ç) ve bir hakkın tesisi, kullanılması veya korunması (m.5/2-e) hukuki sebeplerine dayanır.</p>
 <h2>5. Aktarım ve Saklama</h2>
-<p>Siparişlerinizi WhatsApp üzerinden aldığımız için kişisel verilerinizi bilgisayarlarımızda veya ayrı bir kayıt sisteminde tutmuyoruz. Yalnızca fatura üzerindeki ad-soyad bilgileriniz, muhasebe amacıyla vergi mevzuatının öngördüğü süre boyunca saklanır; bu sürenin sonunda silinir veya yok edilir.</p>
+<p>Siparişlerinizi WhatsApp üzerinden aldığımız için kişisel verilerinizi bilgisayarlarımızda veya ayrı bir kayıt sisteminde tutmuyoruz. Yalnızca fatura üzerindeki ad-soyad bilgileriniz, muhasebe amacıyla vergi mevzuatının öngördüğü süre boyunca saklanır; sürenin sonunda silinir veya yok edilir.</p>
 <p>WhatsApp aracılığıyla iletilen verileriniz, hizmeti sunan Meta'nın yurt dışındaki sunucularında KVKK m.9 çerçevesinde işlenebilir. Siparişin tesliminde ad, adres ve telefonunuz kargo firmasına, yasal zorunluluk halinde yetkili kamu kurumlarına aktarılır.</p>
 <h2>6. Haklarınız</h2>
-<p>KVKK'nın 11. maddesi uyarınca verilerinizin işlenip işlenmediğini öğrenme, bilgi talep etme, amacına uygun kullanılıp kullanılmadığını öğrenme, aktarıldığı üçüncü kişileri bilme, düzeltme, silme/yok etme isteme, bu işlemlerin üçüncü kişilere bildirilmesini isteme, otomatik analiz sonucuna itiraz etme ve kanuna aykırı işleme nedeniyle zarara uğramanız halinde zararın giderilmesini talep etme haklarına sahipsiniz.</p>
+<p>KVKK'nın 11. maddesi uyarınca verilerinizin işlenip işlenmediğini öğrenme, bilgi talep etme, amacına uygun kullanılıp kullanılmadığını öğrenme, aktarıldığı üçüncü kişileri bilme, düzeltme, silme/yok etme isteme, işlemlerin üçüncü kişilere bildirilmesini isteme, otomatik analiz sonucuna itiraz etme ve kanuna aykırı işleme nedeniyle zarara uğramanız halinde zararın giderilmesini talep etme haklarına sahipsiniz.</p>
 <p>Başvurularınızı yazılı olarak Hepkebirler Mh. Omuzlu Sk. No:1, Merkez, Kastamonu adresine, cimenagapastirma@gmail.com adresine iletebilirsiniz; talepleriniz en geç otuz gün içinde yanıtlanır. Kimlik doğrulaması için ek bilgi istenebilir.</p>
 
 </article></div></section>
 </main>
 <section id="cart" hidden>
-<details class="wrap">
-<summary>Sepetim <span>Toplam <b id="total"></b></span></summary>
+<button id="cart-bar" class="wrap" type="button" aria-haspopup="dialog"><span>Sepetim <b id="bar-count"></b></span><span class="bar-total">Toplam <b class="total"></b></span><span class="bar-go">Sepeti Gör</span></button>
+</section>
+<dialog id="cart-panel" aria-labelledby="cart-title">
+<div class="wrap">
+<div class="panel-head"><h2 id="cart-title">Sepetim</h2><button id="cart-close" type="button" aria-label="Sepeti kapat">✕</button></div>
+<a id="add-more" class="btn ghost" href="/urunlerimiz.html">+ Yeni ürün ekle</a>
 <ul id="items"></ul>
 <p id="ship"></p>
+<p class="panel-total">Toplam <b class="total"></b></p>
 <div id="order">
 <small>5.000 ₺ ve üzeri siparişlerde kargo ücretsizdir; altındaki siparişlerde kargo ücreti 250 ₺'dir. Siparişiniz WhatsApp üzerinden teyit edilir. Siparişi ileterek <a href="/mesafeli-satis-sozlesmesi.html">Mesafeli Satış Sözleşmesi</a>'ni kabul etmiş olursunuz.</small>
 <button id="send" class="btn" type="button">WhatsApp'tan Siparişi İlet</button>
 <button id="share" type="button">Sepeti paylaş</button>
 </div>
-</details>
-</section>
+</div>
+</dialog>
 <footer>
 <div class="wrap">
 <img src="/assets/img/logo.png?v=2" alt="" width="105" height="72">
 <div>
-<p><b>Çimenağa Pastırma</b></p>
+<p><b>Çimenağa Pastırma &amp; Sucuk</b></p>
+<p class="open"><b>Her gün 08:00 - 20:00 arası açığız</b></p>
 <p>Hepkebirler Mh. Omuzlu Sk. No:1, Merkez, Kastamonu</p>
 <p><a href="tel:+905416967790">+90 541 696 77 90</a> · <a href="mailto:cimenagapastirma@gmail.com">cimenagapastirma@gmail.com</a></p>
-<p class="open"><b>Her gün akşam 20:00'ye kadar açığız</b> · Hafta içi 08:00'den itibaren</p>
 </div>
 <nav>
 <a href="/kastamonu-cografi-isaretli-urunleri.html">Coğrafi İşaretli Ürünler</a>
+<a href="/kastamonuya-yolunuz-duserse.html">Kastamonu'ya Yolunuz Düşerse</a>
 <a href="/gizlilik-politikasi.html">Gizlilik Politikası</a>
 <a href="/kvkk.html">KVKK</a>
 <a href="/mesafeli-satis-sozlesmesi.html">Mesafeli Satış Sözleşmesi</a>
@@ -115,6 +121,6 @@
 <li><img alt="" width="60" height="60"><span><b></b><small></small></span><span class="sum"></span>
 <span class="q"><button type="button" data-step="-1" aria-label="Azalt">−</button><output></output><button type="button" data-step="1" aria-label="Artır">+</button></span></li>
 </template>
-<script src="/assets/app.js?v=10"></script>
+<script src="/assets/app.js?v=13"></script>
 </body>
 </html>
