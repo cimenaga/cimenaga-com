@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+<channel>
+<title>Çimenağa Pastırma &amp; Sucuk</title>
+<link>https://cimenaga.com/</link>
+<description>Kastamonu pastırması, sucuğu ve pastırmalı ince pide</description>
+<item>
+<g:id>pastirma</g:id>
+<title>Kastamonu Pastırması 1 kg</title>
+<description>Kemiksiz sırt eti kaya tuzuyla tuzlanır, ağırlık altında sıkıştırılır, güneşte kurutulur ve Taşköprü sarımsaklı çimenle kaplanır. Tadı orta tuzlu, sarımsağı belirgindir. 1 kg olarak satılır. Çimenli ya da çimensiz seçilebilir.</description>
+<link>https://cimenaga.com/urun/kastamonu-pastirmasi.html</link>
+<g:image_link>https://cimenaga.com/assets/img/pastirma.webp</g:image_link>
+<g:availability>in_stock</g:availability>
+<g:price>2800.00 TRY</g:price>
+<g:condition>new</g:condition>
+<g:brand>Çimenağa Pastırma</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+<g:google_product_category>Food, Beverages &amp; Tobacco &gt; Food Items &gt; Meat, Seafood &amp; Eggs</g:google_product_category>
+<g:product_type>Kastamonu Yöresel Ürünleri</g:product_type>
+<g:shipping>
+<g:country>TR</g:country>
+<g:service>Kargo</g:service>
+<g:price>250.00 TRY</g:price>
+</g:shipping>
+</item>
+<item>
+<g:id>sucuk</g:id>
+<title>Kastamonu Sucuğu 1 kg</title>
+<description>Pastırmanın yanında Kastamonu sofralarının ikinci klasiği. Kahvaltıda yumurtayla, ekmek arasında ya da pidenin üstünde yenir; tavada, ızgarada pişirilebilir veya dilimlenip soğuk servis edilir. 1 kg olarak satılır.</description>
+<link>https://cimenaga.com/urun/kastamonu-sucugu.html</link>
+<g:image_link>https://cimenaga.com/assets/img/sucuk.webp</g:image_link>
+<g:availability>in_stock</g:availability>
+<g:price>2000.00 TRY</g:price>
+<g:condition>new</g:condition>
+<g:brand>Çimenağa Pastırma</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+<g:google_product_category>Food, Beverages &amp; Tobacco &gt; Food Items &gt; Meat, Seafood &amp; Eggs</g:google_product_category>
+<g:product_type>Kastamonu Yöresel Ürünleri</g:product_type>
+<g:shipping>
+<g:country>TR</g:country>
+<g:service>Kargo</g:service>
+<g:price>250.00 TRY</g:price>
+</g:shipping>
+</item>
+<item>
+<g:id>pide</g:id>
+<title>Kastamonu Pastırmalı İnce Pide</title>
+<description>İnce hamurlu, Kastamonu pastırmalı pide; Kastamonu'da odun fırınında pişirilir ve dondurulmuş olarak gönderilir. Soğanlı ya da az soğanlı seçilebilir. Fiyat adet başınadır.</description>
+<link>https://cimenaga.com/urun/kastamonu-pastirmali-ince-pide.html</link>
+<g:image_link>https://cimenaga.com/assets/img/pide.webp</g:image_link>
+<g:availability>in_stock</g:availability>
+<g:price>350.00 TRY</g:price>
+<g:condition>new</g:condition>
+<g:brand>Çimenağa Pastırma</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+<g:google_product_category>Food, Beverages &amp; Tobacco &gt; Food Items</g:google_product_category>
+<g:product_type>Kastamonu Yöresel Ürünleri</g:product_type>
+<g:shipping>
+<g:country>TR</g:country>
+<g:service>Kargo</g:service>
+<g:price>250.00 TRY</g:price>
+</g:shipping>
+</item>
+</channel>
+</rss>
