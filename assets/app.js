@@ -7,9 +7,9 @@ const CONFIG = {
 };
 
 const PRODUCTS = {
-  pastirma: { name: "Kastamonu Pastırması", unit: "1 kg", price: 2800, url: "/urun/kastamonu-pastirmasi.html" },
-  pastirma_cemensiz: { name: "Kastamonu Pastırması (Çimensiz)", unit: "1 kg", price: 2800, url: "/urun/kastamonu-pastirmasi.html", img: "pastirma" },
-  sucuk: { name: "Kastamonu Sucuğu", unit: "1 kg", price: 2000, url: "/urun/kastamonu-sucugu.html" },
+  pastirma: { name: "Kastamonu Pastırması", unit: "500 g", price: 1400, url: "/urun/kastamonu-pastirmasi.html" },
+  pastirma_cemensiz: { name: "Kastamonu Pastırması (Çimensiz)", unit: "500 g", price: 1400, url: "/urun/kastamonu-pastirmasi.html", img: "pastirma" },
+  sucuk: { name: "Kastamonu Sucuğu", unit: "500 g", price: 1000, url: "/urun/kastamonu-sucugu.html" },
   pide: { name: "Kastamonu Pastırmalı İnce Pide (Soğanlı)", unit: "adet", price: 350, url: "/urun/kastamonu-pastirmali-ince-pide.html", note: "Dondurulmuş olarak gönderilir" },
   pide_az_sogan: { name: "Kastamonu Pastırmalı İnce Pide (Az Soğanlı)", unit: "adet", price: 350, url: "/urun/kastamonu-pastirmali-ince-pide.html", img: "pide", note: "Dondurulmuş olarak gönderilir" },
 };
@@ -44,17 +44,37 @@ const total = () => entries().reduce((s, p) => s + p.price * p.qty, 0);
 const shipping = () => (total() === 0 || total() >= CONFIG.freeShippingFrom ? 0 : CONFIG.shippingFee);
 const shippingText = () => (shipping() ? fmt(shipping()) : "Ücretsiz");
 
+function triggerBump() {
+  for (const el of [$("#open-cart"), $("#cart-bar")]) {
+    if (el) {
+      el.classList.remove("bump");
+      void el.offsetWidth;
+      el.classList.add("bump");
+    }
+  }
+}
+
 function change(id, delta) {
   if (!PRODUCTS[id]) return;
   cart[id] = Math.min((cart[id] || 0) + delta, 99);
   if (cart[id] <= 0) delete cart[id];
+  if (delta > 0) triggerBump();
   render();
 }
 
 function message() {
-  const lines = entries().map((p) => `*${p.qty} x ${p.name}*${p.note ? ` (${p.note})` : ""}: ${fmt(p.price * p.qty)}`);
+  const lines = entries().map((p) => {
+    let amount = "";
+    if (p.unit === "500 g") {
+      const kg = p.qty * 0.5;
+      amount = kg >= 1 ? `${kg.toLocaleString("tr-TR")} kg (${p.qty} × 500 g)` : `500 g`;
+    } else {
+      amount = `${p.qty} ${p.unit}`;
+    }
+    return `*${amount} ${p.name}*${p.note ? ` (${p.note})` : ""}: ${fmt(p.price * p.qty)}`;
+  });
   let msg = `${CONFIG.greeting}\n\n${lines.join("\n")}\n\nAra Toplam: ${fmt(total())}\nKargo: ${shippingText()}\nGenel Toplam: *${fmt(total() + shipping())}*`;
-  msg += `\n\nMesafeli Satış Sözleşmesi'ni okudum, kabul ediyorum: ${location.origin}/mesafeli-satis-sozlesmesi.html`;
+  msg += `\n\nİsim Soyisim: \nAdres: `;
   return msg;
 }
 
@@ -84,7 +104,14 @@ function render() {
     row.querySelector("li").dataset.id = p.id;
     row.querySelector("img").src = `/assets/img/${p.img || p.id}.webp`;
     row.querySelector("b").textContent = p.name;
-    row.querySelector("small").textContent = [p.unit, p.note].filter(Boolean).join(" · ");
+    let amountText = "";
+    if (p.unit === "500 g") {
+      const kg = p.qty * 0.5;
+      amountText = kg >= 1 ? `${kg.toLocaleString("tr-TR")} kg (${p.qty} × 500 g)` : `500 g`;
+    } else {
+      amountText = `${p.qty} ${p.unit}`;
+    }
+    row.querySelector("small").textContent = [amountText, p.note].filter(Boolean).join(" · ");
     row.querySelector("output").textContent = p.qty;
     row.querySelector(".sum").textContent = fmt(p.price * p.qty);
     list.append(row);
@@ -111,6 +138,7 @@ document.addEventListener("change", (e) => {
 });
 
 document.addEventListener("click", async (e) => {
+  if (e.target === $("#cart-panel")) { $("#cart-panel").close(); return; }
   if (e.target.closest("#menu")) {
     $("#menu").setAttribute("aria-expanded", $("header").classList.toggle("open"));
     return;
